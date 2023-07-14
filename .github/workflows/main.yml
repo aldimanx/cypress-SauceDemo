@@ -36,7 +36,7 @@ jobs:
         run: npx cypress run --headless --browser chrome --reporter mochawesome
 
       - name: Merge and generate report
-        run: npx mochawesome-merge --reportDir cypress/reports/mocha > cypress/reports/mochareport.json && npx marge cypress/reports/mochareport.json -o cypress/reports
+        run: npx mochawesome-merge --reportDir cypress/report/mocha > cypress/report/mochareport.json && npx marge cypress/report/mochareport.json -o cypress/report
 
       - name: Upload Report
         uses: actions/upload-artifact@v2

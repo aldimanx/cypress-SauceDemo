@@ -6,6 +6,7 @@ let productpage = new productPage()
 
 describe('product feature', () => {
 
+    
 beforeEach(() => {
 
   let username = 'standard_user'

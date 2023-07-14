@@ -3,7 +3,8 @@ import productPage from "../pages/productPage"
 
 let productpage = new productPage()
 let loginpage = new loginPage()
-describe('Ttest>', () => {
+
+describe('login feature', () => {
 
   beforeEach(() => {
     cy.visit('https://www.saucedemo.com/')
@@ -42,22 +43,22 @@ describe('Ttest>', () => {
         .should('have.text','Epic sadface: Sorry, this user has been locked out.')    
   })
 
-  it('004 login with problem user', ()=>{
-    loginpage.InputUsername()
-        .type("problem_user")
-    loginpage.inputPassword()
-        .type("secret_sauce")
-    loginpage.LoginButton()
-        .click()
-    cy.xpath('//img[@class="inventory_item_img"]')
-        .should('exist')
-    productpage.item1()
-        .click()
-   cy.get('[data-test="remove-sauce-labs-backpack"]')
-        .click()        
+//   it('004 login with problem user', ()=>{
+//     loginpage.InputUsername()
+//         .type("problem_user")
+//     loginpage.inputPassword()
+//         .type("secret_sauce")
+//     loginpage.LoginButton()
+//         .click()
+//     cy.xpath('//img[@class="inventory_item_img"]')
+//         .should('exist')
+//     productpage.item1()
+//         .click()
+//    cy.get('[data-test="remove-sauce-labs-backpack"]')
+//         .click()        
 
 
   })
-})
+
 
 

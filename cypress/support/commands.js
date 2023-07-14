@@ -5,5 +5,3 @@ Cypress.Commands.add('loginsaucedemo', (username,password) => {
     cy.get('[data-test="login-button"]').click()
 
   });
-
-  require('cypress-xpath');

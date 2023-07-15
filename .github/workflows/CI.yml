@@ -24,7 +24,7 @@ jobs:
         run: npx cypress run --headless --browser chrome
 
       - name: Create Reports Directory
-        run: mkdir -p $GITHUB_WORKSPACE/report
+        run: mkdir -p $GITHUB_WORKSPACE/cypress/report
       
       - name: Move cypress Report
         run: mv index.html $GITHUB_WORKSPACE/cypress/report/index.html

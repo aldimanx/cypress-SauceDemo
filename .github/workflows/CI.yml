@@ -41,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
          name: my-artifact
-         path: $GITHUB_WORKSPACE/index.html
+         path: ${{ github.workspace }}/index.html

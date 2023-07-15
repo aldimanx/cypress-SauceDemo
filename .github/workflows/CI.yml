@@ -31,3 +31,9 @@ jobs:
         with:
           branch: gh-actions
           folder: .
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v2
+        with:
+            name: Cypress Reports
+            path: $GITHUB_WORKSPACE/index.html

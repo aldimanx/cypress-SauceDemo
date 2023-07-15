@@ -26,11 +26,11 @@ jobs:
       - name: Move cypress Report
         run: mv cypress/report/index.html $GITHUB_WORKSPACE/index.html
 
-      - name: Publish cypress Report
-        uses: JamesIves/github-pages-deploy-action@4.1.0
-        with:
-          branch: gh-actions
-          folder: .
+      # - name: Publish cypress Report
+      #   uses: JamesIves/github-pages-deploy-action@4.1.0
+      #   with:
+      #     branch: gh-actions
+      #     folder: .
 
       - name: Upload Report
         uses: actions/upload-artifact@v3

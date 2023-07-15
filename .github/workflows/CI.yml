@@ -24,10 +24,10 @@ jobs:
         run: npx cypress run --headless --browser chrome
 
       - name: Create Reports Directory
-        run: mkdir -p $GITHUB_WORKSPACE/cypress/report
+        run: mkdir -p $GITHUB_WORKSPACE/cypress-SauceDemo/cypress/report
       
       - name: Move cypress Report
-        run: mv index.html $GITHUB_WORKSPACE/cypress/report/index.html
+        run: mv index.html $GITHUB_WORKSPACE/cypress-SauceDemo/cypress/report/index.html
 
       - name: Publish cypress Report
         uses: JamesIves/github-pages-deploy-action@4.1.0

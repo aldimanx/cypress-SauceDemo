@@ -33,7 +33,7 @@ jobs:
           folder: .
 
       - name: Upload Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-            name: Cypress Reports
-            path: $GITHUB_WORKSPACE/index.html
+         name: my-artifact
+         path: $GITHUB_WORKSPACE/index.html

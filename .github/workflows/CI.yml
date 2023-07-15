@@ -1,0 +1,39 @@
+name: Cypress Tests
+on:
+    push:
+        branches:
+          - master 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npx cypress run --headless --browser chrome --reporter mochawesome
+
+      - name: Merge and generate report
+        run: npx mochawesome-merge --reportDir cypress/report/mocha > cypress/report/index.html && npx marge cypress/report/index.html -o cypress/report
+
+      - name: Create Reports Directory
+        run: mkdir -p $GITHUB_WORKSPACE/reports
+      
+      - name: Move Newman Report
+        run: mv newman-report.html $GITHUB_WORKSPACE/report/index.html
+
+      - name: Publish Newman Report
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-actions
+          folder: .

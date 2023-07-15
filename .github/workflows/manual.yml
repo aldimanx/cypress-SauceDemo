@@ -36,7 +36,7 @@ jobs:
         run: npx cypress run --headless --browser chrome
 
       - name: Move cypress Report
-        run: mv cypress/report/index.html $GITHUB_WORKSPACE/cypress/index.html
+        run: mv cypress/report/index.html $GITHUB_WORKSPACE/index.html
 
       - name: Publish cypress Report
         uses: JamesIves/github-pages-deploy-action@4.1.0

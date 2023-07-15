@@ -33,16 +33,10 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
-        run: npx cypress run --headless --browser chrome --reporter mochawesome
+        run: npx cypress run --headless --browser chrome
 
-      - name: Merge and generate report
-        run: npx mochawesome-merge --reportDir cypress/report/mocha > cypress/report/index.html && npx marge cypress/report/index.html -o cypress/report
-
-      - name: Create Reports Directory
-        run: mkdir -p $GITHUB_WORKSPACE/report
-      
       - name: Move cypress Report
-        run: mv report.html $GITHUB_WORKSPACE/report/index.html
+        run: mv cypress/report/index.html $GITHUB_WORKSPACE/cypress/index.html
 
       - name: Publish cypress Report
         uses: JamesIves/github-pages-deploy-action@4.1.0

@@ -1,0 +1,13 @@
+{    
+    "reporter": "cypress-mochawesome-reporter",
+"reporterOptions": {
+  "reportDir": "cypress/report",
+  "charts": true,
+  "reportPageTitle": "cypress report",
+  "video": false
+},
+
+"video": false,
+"chromeWebSecurity": false
+
+}

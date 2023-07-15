@@ -26,5 +26,5 @@ jobs:
       - name: Upload Report
         uses: actions/upload-artifact@v3
         with:
-         name: my-artifact
+         name: cypress report CI
          path: ${{ github.workspace }}/cypress/report/

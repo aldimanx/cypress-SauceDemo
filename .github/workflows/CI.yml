@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: CI Cypress
 on:
     push:
         branches:
@@ -21,18 +21,15 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
-        run: npx cypress run --headless --browser chrome --reporter mochawesome
-
-      - name: Merge and generate report
-        run: npx mochawesome-merge --reportDir cypress/report/mocha > cypress/report/index.html && npx marge cypress/report/index.html -o cypress/report
+        run: npx cypress run --headless --browser chrome
 
       - name: Create Reports Directory
-        run: mkdir -p $GITHUB_WORKSPACE/reports
+        run: mkdir -p $GITHUB_WORKSPACE/report
       
-      - name: Move Newman Report
-        run: mv newman-report.html $GITHUB_WORKSPACE/report/index.html
+      - name: Move cypress Report
+        run: report.html $GITHUB_WORKSPACE/report/index.html
 
-      - name: Publish Newman Report
+      - name: Publish cypress Report
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-actions

@@ -31,6 +31,11 @@ jobs:
       #   with:
       #     branch: gh-actions
       #     folder: .
+      - name: List files in workspace
+        run: ls -R $GITHUB_WORKSPACE
+
+      - name: Verify file existence
+        run: ls -al $GITHUB_WORKSPACE/index.html
 
       - name: Upload Report
         uses: actions/upload-artifact@v3

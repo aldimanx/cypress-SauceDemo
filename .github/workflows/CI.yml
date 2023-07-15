@@ -27,7 +27,7 @@ jobs:
         run: mkdir -p $GITHUB_WORKSPACE/cypress-SauceDemo/cypress/reports
       
       - name: Move cypress Report
-        run: mv cypress-SauceDemo/cypress/report/index.html $GITHUB_WORKSPACE/cypress-SauceDemo/cypress/reports/index.html
+        run: mv cypress/report/index.html $GITHUB_WORKSPACE/cypress-SauceDemo/cypress/reports/index.html
 
       - name: Publish cypress Report
         uses: JamesIves/github-pages-deploy-action@4.1.0

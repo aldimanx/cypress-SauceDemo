@@ -23,22 +23,8 @@ jobs:
       - name: Run Cypress tests
         run: npx cypress run --headless --browser chrome
 
-      - name: Move cypress Report
-        run: mv cypress/report/index.html $GITHUB_WORKSPACE/index.html
-
-      # - name: Publish cypress Report
-      #   uses: JamesIves/github-pages-deploy-action@4.1.0
-      #   with:
-      #     branch: gh-actions
-      #     folder: .
-      - name: List files in workspace
-        run: ls -R $GITHUB_WORKSPACE
-
-      - name: Verify file existence
-        run: ls -al $GITHUB_WORKSPACE/index.html
-
       - name: Upload Report
         uses: actions/upload-artifact@v3
         with:
          name: my-artifact
-         path: ${{ github.workspace }}/index.html
+         path: ${{ github.workspace }}/cypress/report/index.html

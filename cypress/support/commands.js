@@ -1,3 +1,6 @@
+/// <reference types="Cypress" />
+
+
 Cypress.Commands.add('loginsaucedemo', (username,password) => {
     cy.visit('https://www.saucedemo.com/')
     cy.get('[data-test="username"]').type(username)

@@ -14,22 +14,12 @@ class randomizer {
     makeNumberUnderMax(max){
       return Math.floor(Math.random() * max);
     }
-
-    getGender(type='') {
-      const genderList = [
-        'male','female',
-      ];
-      
-      return genderList[this.makeNumberUnderMax(genderList.length)];
-    } 
     
-    getStatus(type='') {
-      const statusList = [
-        'active','inactive',
-      ];
-      
-      return statusList[this.makeNumberUnderMax(statusList.length)];
-    }
+    makeName(){
+      const { faker } = require('@faker-js/faker');
+      let randomName = faker.name.findName();
+      return randomName
+  }
 }
 
 

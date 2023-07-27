@@ -8,3 +8,4 @@ Cypress.Commands.add('loginsaucedemo', (username,password) => {
     cy.get('[data-test="login-button"]').click()
 
   });
+  const { faker } = require('@faker-js/faker');

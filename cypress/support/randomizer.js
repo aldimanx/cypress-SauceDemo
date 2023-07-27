@@ -15,11 +15,12 @@ class randomizer {
       return Math.floor(Math.random() * max);
     }
     
-    makeName(){
-      const { faker } = require('@faker-js/faker');
-      let randomName = faker.name.findName();
-      return randomName
-  }
+//see documentation in https://github.com/faker-js/faker
+makeName(){
+  const { faker } = require('@faker-js/faker');
+  let randomName = faker.person.fullName();
+  return randomName
+}
 }
 
 

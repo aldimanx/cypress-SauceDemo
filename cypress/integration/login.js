@@ -43,21 +43,21 @@ describe('login feature', () => {
         .should('have.text','Epic sadface: Sorry, this user has been locked out.')    
   })
 
-//   it('004 login with problem user', ()=>{
-//     loginpage.InputUsername()
-//         .type("problem_user")
-//     loginpage.inputPassword()
-//         .type("secret_sauce")
-//     loginpage.LoginButton()
-//         .click()
-//     cy.xpath('//img[@class="inventory_item_img"]')
-//         .should('exist')
-//     productpage.item1()
-//         .click()
-//    cy.get('[data-test="remove-sauce-labs-backpack"]')
-//         .click()        
+  it('004 login with problem user', ()=>{
+    loginpage.InputUsername()
+        .type("problem_user")
+    loginpage.inputPassword()
+        .type("secret_sauce")
+    loginpage.LoginButton()
+        .click()
+    cy.xpath('//img[@class="inventory_item_img"]')
+        .should('exist')
+    productpage.item1()
+        .click()
+   cy.get('[data-test="remove-sauce-labs-backpack"]')
+        .click()        
 
-
+  })
   })
 
 

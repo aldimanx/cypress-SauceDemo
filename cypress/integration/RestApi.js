@@ -14,7 +14,6 @@ describe('api testing', () => {
                 
                const data = resp.body.data
                let length = data.length
-
                expect(resp.status).to.equal(200);
                for(let i = 0; i < length; i++){
                     expect(data[i]).to.be.not.null

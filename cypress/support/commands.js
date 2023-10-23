@@ -1,5 +1,5 @@
-/// <reference types="Cypress" />
-
+// type definitions for Cypress object "cy"
+/// <reference types="cypress" />
 
 Cypress.Commands.add('loginsaucedemo', (username,password) => {
     cy.visit('https://www.saucedemo.com/')

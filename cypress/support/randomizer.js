@@ -21,6 +21,12 @@ makeName(){
   let randomName = faker.person.fullName();
   return randomName
 }
+
+makeName(){
+  const { faker } = require('@faker-js/faker');
+  let randomName = faker.internet.email();
+  return randomName
+}
 }
 
 

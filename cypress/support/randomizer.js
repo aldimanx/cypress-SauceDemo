@@ -22,7 +22,7 @@ makeName(){
   return randomName
 }
 
-makeName(){
+makeMail(){
   const { faker } = require('@faker-js/faker');
   let randomName = faker.internet.email();
   return randomName

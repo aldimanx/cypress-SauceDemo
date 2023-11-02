@@ -1,31 +1,58 @@
-import saucedemo from "../pages/saucedemo"; // Adjust the path as needed
+import SauceDemo from "../pages/saucedemo";
 
 describe('sauce demo', () => {
-  let Saucedemo = new saucedemo();
+  let saucedemo = new SauceDemo();
+  let visibleElementCount
+  const url = 'https://www.saucedemo.com'
 
-  let username = ['standard_user', 'locked_out_user', 'standard_user'];
+  let username = ['standard_user', 'locked_out_user', 'visual_user'];
+  const password = "secret_sauce"
+  beforeEach(() => {
+    cy.visit(url); // Correct the URL
+  })
 
   it('login feature', () => {
-    cy.visit('https://www.saucedemo.com'); // Correct the URL
 
     for (let i = 0; i < username.length; i++) {
-      cy.xpath('//input[@id="user-name"]').clear();
-      cy.xpath('//input[@id="user-name"]').type(username[i]);
-      cy.xpath('//input[@id="password"]').clear();
-      cy.xpath('//input[@id="password"]').type('secret_sauce');
-      cy.xpath('//input[@id="login-button"]').click();
-      cy.get('body').then((bodyElement) => {
 
-    // If ProductPage is found on the page, navigate to it
-        if(bodyElement.find){
-       // if (bodyElement.find('[data-test="error"]').length > 0) {
-        cy.log(username[i]); // Log the username
+      saucedemo.Funclogin(username[i], password)
+      
+      cy.get('body').then((bodyElement) => {
+    //If ProductPage is found on the page, navigate to it
+       if (bodyElement.find('[class="error-message-container error"]').length){
+        saucedemo.btnLogin().should('exist')
       } else {
-        cy.xpath('//button[text()="Open Menu"]').click();
-        cy.get('#logout_sidebar_link').click();
-      }
-    
+        saucedemo.ttlProduct().should('have.text','Products')
+        saucedemo.FuncLogout()
+      }    
     })
 }
-  });
+});
+
+it('add items', () => {
+
+   saucedemo.Funclogin(username[0], password)
+    saucedemo.btnAddItem().then(($elements) => {
+      // Use the callback function to filter and count visible elements
+      visibleElementCount = $elements.length;
+      // Log the count or perform assertions
+      cy.log(`Number of visible elements: ${visibleElementCount}`);
+    })
+    saucedemo.btnAddItem().each((index) => {
+      // Click each element
+      cy.wrap(index).click();
+})
+    saucedemo.btncart().click()
+    saucedemo.txtItem().should(($lis) => {
+      expect($lis).to.have.length(visibleElementCount)
+      expect($lis.eq(0)).to.contain('Sauce Labs Backpack')
+      expect($lis.eq(1), 'second item').to.contain('Sauce Labs Bike Light')
+      expect($lis.eq(2), 'third item').to.contain('Sauce Labs Bolt T-Shirt')
+})
+
+});
+
+
+
+
 });
